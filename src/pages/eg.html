@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employment Toggle</title>
+  <style>
+    .hidden {
+      display: none;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Employment Status</h1>
+  <form>
+    <!-- Radio Buttons -->
+    <div class="form-group">
+      <label>Are you currently employed?</label><br>
+      <input type="radio" id="employed" name="employment" value="yes" onclick="toggleFields()"> Yes<br>
+      <input type="radio" id="unemployed" name="employment" value="no" onclick="toggleFields()"> No
+    </div>
+
+    <!-- Fields for employed -->
+    <div id="employedFields" class="hidden">
+      <div class="form-group">
+        <label for="designation">Current Designation:</label>
+        <input type="text" id="designation" name="designation" placeholder="Enter your designation">
+      </div>
+      <div class="form-group">
+        <label for="industry">Your Industry:</label>
+        <input type="text" id="industry" name="industry" placeholder="Enter your industry">
+      </div>
+    </div>
+
+    <!-- Fields for unemployed -->
+    <div id="unemployedFields" class="hidden">
+      <div class="form-group">
+        <label for="expectedSalary">Expected Salary:</label>
+        <input type="text" id="expectedSalary" name="expectedSalary" placeholder="Enter expected salary">
+      </div>
+      <div class="form-group">
+        <label for="jobRole">Job Role:</label>
+        <input type="text" id="jobRole" name="jobRole" placeholder="Enter desired job role">
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div >
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+
+  <script>
+    function toggleFields() {
+      const employedFields = document.getElementById("employedFields");
+      const unemployedFields = document.getElementById("unemployedFields");
+
+      if (document.getElementById("employed").checked) {
+        employedFields.classList.remove("hidden");
+        unemployedFields.classList.add("hidden");
+      } else if (document.getElementById("unemployed").checked) {
+        unemployedFields.classList.remove("hidden");
+        employedFields.classList.add("hidden");
+      }
+    }
+  </script>
+</body>
+</html>

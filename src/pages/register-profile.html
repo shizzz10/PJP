@@ -1,0 +1,1721 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/output.css" />
+    <title>Register Profile</title>
+  </head>
+  <body>
+    <header class="w-full flex justify-center">
+      <div
+        class="fixed top-0 w-full head-foot-width z-50 h-12 b-bg-color text-white border-b-4 border-white backdrop:flex flex-col gap-2 px-2 py-1 md:px-10"
+      >
+        <div class="flex justify-between items-center h-full">
+          <a href="../../index.html" class="flex flex-shrink-0">
+            <img src="../assets/pjp-logo.webp" alt="pjp logo" class="w-10" />
+          </a>
+
+          <!-- tab button & flags  -->
+          <div class="flex items-center gap-1">
+            <!-- Tabs Button  -->
+            <div class="flex justify-start">
+              <div
+                class="border h-7 lg:h-8 rounded-full flex transition-all duration-300 relative overflow-hidden"
+              >
+                <!-- slider  -->
+                <div
+                  class="px-2 sm:px-4 py-1 slider-bg absolute top-0 left-0 w-1/2 h-full bg-white bg-opacity-95 c-border rounded-full z-0 transition-transform duration-300 ease-in-out"
+                ></div>
+                <button
+                  id="jobSeekerTabBtn"
+                  onclick="showTab(0, 'jobSeekerTab', this)"
+                  class="tab-btn font-medium text-xs sm:text-sm lg:text-lg w-20 sm:w-32 lg:w-32 rounded-full transition-transform duration-300 ease-in-out transform overflow-hidden scale-100 hover:scale-1 m-color"
+                >
+                  JobSeeker
+                </button>
+                <button
+                  id="businessTabBtn"
+                  onclick="showTab(1, 'businessTab', this)"
+                  class="tab-btn font-medium text-xs sm:text-sm lg:text-lg w-20 sm:w-32 lg:w-32 rounded-full transition-transform duration-300 ease-in-out transform overflow-hidden scale-100 hover:scale-105 text-white"
+                >
+                  Business
+                </button>
+              </div>
+            </div>
+
+            <!-- flag  -->
+            <div class="relative w-14">
+              <div
+                class="countries-dropdown flex justify-end rounded-md cursor-pointer"
+              >
+                <picture id="selected-country">
+                  <img src="../assets/pk.svg" alt="" class="w-8 md:w-10" />
+                </picture>
+              </div>
+              <div
+                id="country-list"
+                class="absolute z-10 w-full mt-2 bg-white border border-gray-300 rounded-md shadow-lg hidden"
+              >
+                <a href="">
+                  <div
+                    class="px-2 py-2 hover:bg-gray-100 cursor-pointer border-b"
+                  >
+                    <div class="flex">
+                      <img src="../assets/pk.svg" alt="" class="w-7 md:w-12" />
+                    </div>
+                  </div>
+                </a>
+                <a href="">
+                  <div class="px-2 py-2 hover:bg-gray-100 cursor-pointer">
+                    <div class="flex">
+                      <img src="../assets/qa.svg" alt="" class="w-7 md:w-12" />
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- deafultContent tab  -->
+    <div id="deafultContent" class="md:w-full flex md:items-center flex-col">
+      <main class="main !mt-14 !mb-14">
+        <div class="flex flex-col gap-6">
+          <!-- heading  -->
+          <div class="flex flex-col">
+            <h2 class="font-bold md:text-lg text-lg ml-2 b-color">
+              Register As JobSeeker
+            </h2>
+          </div>
+
+          <!-- profile card  -->
+          <form
+            id="editForm"
+            class="flex flex-col gap-3 bg-white px-3 py-4 rounded-xl shadow-sm shadow-black/40"
+          >
+            <!-- profile pic  -->
+            <div class="flex justify-center">
+              <!-- profile Picture   -->
+              <div class="flex flex-col gap-1 items-center justify-center">
+                <div
+                  class="flex rounded-full border-4 w-24 h-24 justify-center items-center flex-shrink-0"
+                >
+                  <img
+                    id="profileImage"
+                    src="../assets/user.svg"
+                    class="w-20 h-20 rounded-full object-cover object-top"
+                    alt=""
+                  />
+                </div>
+                <!-- File Input for Upload -->
+                <div class="flex flex-col justify-center items-center">
+                  <div
+                    class="b-bg-h-color flex gap-1 rounded-full pr-2 items-center border border-white"
+                  >
+                    <picture
+                      class="bg-white hover:bg-slate-100 rounded-full border border-white"
+                    >
+                      <img
+                        src="../assets/upload-photo.svg"
+                        alt=""
+                        class="w-4 m-1"
+                      />
+                    </picture>
+
+                    <label
+                      for="uploadImage"
+                      class="font-semibold cursor-pointer text-sm text-white"
+                    >
+                      Upload Photo
+                    </label>
+                    <input
+                      id="uploadImage"
+                      type="file"
+                      accept="image/*"
+                      class="hidden"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- input text fields  -->
+
+            <div class="flex flex-col gap-7">
+              <!-- personal info  -->
+              <div
+                class="flex flex-col gap-1 bg-stone-100 hover:bg-stone-50 p-2 rounded-2xl shadow-sm shadow-black/10"
+              >
+                <!-- <h3 class="text-sm sm:text-base b-color font-semibold pl-1">
+                  Personal Information
+                </h3> -->
+                <div class="flex flex-col gap-3">
+                  <!-- Name  -->
+                  <div class="flex flex-col gap-0.5">
+                    <input
+                      required
+                      name=""
+                      id="name"
+                      type="text"
+                      class="border w-full rounded-full text-xs px-2 py-3 sm:py-3.5 focus:border-[#3cbf0a] focus:outline-none shadow-sm shadow-black/5"
+                      placeholder="Enter Name (as per CNIC)"
+                    />
+                    <span class="hidden c-text-xs text-red-500 sm:text-xs pl-3"
+                      >Error here</span
+                    >
+                  </div>
+
+                  <!-- Gender License  -->
+                  <div class="flex flex-col gap-0.5">
+                    <label
+                      for="gender"
+                      class="font-medium text-xs sm:text-sm pl-2"
+                    >
+                      Gender</label
+                    >
+                    <select
+                      required
+                      name=""
+                      id="gender"
+                      class="w-full rounded-full border px-2 py-3 text-xs sm:py-3.5 focus:outline-none focus:ring-1 focus:ring-[#3cbf0a] shadow-sm shadow-black/5"
+                    >
+                      <option value="" disabled selected>
+                        Select Your Gender
+                      </option>
+                      <option value="yes">Male</option>
+                      <option value="no">Female</option>
+                    </select>
+
+                    <span class="hidden c-text-xs text-red-500 sm:text-xs pl-3"
+                      >Error here</span
+                    >
+                  </div>
+
+                  <!-- About Me  -->
+                  <div class="flex flex-col gap-0.5">
+                    <label
+                      for="aboutMe"
+                      class="font-medium text-xs sm:text-sm pl-2"
+                    >
+                      About Me</label
+                    >
+                    <textarea
+                      required
+                      rows="3"
+                      name=""
+                      id="aboutMe"
+                      placeholder="Write a short and impactful career summary here including skills and certifications"
+                      class="border w-full rounded-lg text-xs px-2 py-3 focus:border-[#3cbf0a] focus:outline-none shadow-sm shadow-black/5"
+                    ></textarea>
+
+                    <span class="hidden c-text-xs text-red-500 sm:text-xs pl-3"
+                      >Error here</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- professional info  -->
+              <div
+                class="flex flex-col gap-1 bg-stone-100 hover:bg-stone-50 p-2 rounded-2xl shadow-sm shadow-black/10"
+              >
+                <h3 class="text-sm sm:text-base b-color font-semibold pl-1">
+                  Professional Information
+                </h3>
+                <div class="flex flex-col gap-3">
+                  <!-- Profession  -->
+                  <div class="flex flex-col gap-0.5">
+                    <select
+                      required
+                      name=""
+                      id="profession"
+                      class="w-full rounded-full border px-2 py-3 text-xs sm:py-3.5 focus:outline-none focus:ring-1 focus:ring-[#3cbf0a] shadow-sm shadow-black/5"
+                    >
+                      <option value="" disabled selected>
+                        Select a profession
+                      </option>
+                      <option value="3D_Designer">3D Designer</option>
+                      <option value="AC_Technician">AC Technician</option>
+                      <option value="Accounts">Accounts / Finance</option>
+                      <option value="Admin">Admin</option>
+                      <option value="Architect">
+                        Architect / Interior Designer
+                      </option>
+                      <option value="Arabic_Translator">
+                        Arabic Translator
+                      </option>
+                      <option value="Barista">Barista / Bartender</option>
+                      <option value="Business_Developer">
+                        Business Developer
+                      </option>
+                      <option value="Carpenter">Carpenter</option>
+                      <option value="Cabin_Crew">Cabin Crew</option>
+                      <option value="CCTV_Operator">CCTV Operator</option>
+                      <option value="Chemical_Engineer">
+                        Chemical Engineer
+                      </option>
+                      <option value="Chef">Chef / Cook</option>
+                      <option value="Chiropractor">Chiropractor</option>
+                      <option value="Civil_Engineer">Civil Engineer</option>
+                      <option value="Cleaner">Cleaner</option>
+                      <option value="Compliance">Compliance</option>
+                      <option value="Computer_Programmer">
+                        Computer Programmer
+                      </option>
+                      <option value="Crane_Operator">Crane Operator</option>
+                      <option value="Customer_Service">
+                        Customer Service Representative
+                      </option>
+                      <option value="Dental_Assistant">Dental Assistant</option>
+                      <option value="Digital_Marketer">Digital Marketer</option>
+                      <option value="Doctor">Doctor</option>
+                      <option value="Document_Controller">
+                        Document Controller
+                      </option>
+                      <option value="Driver">Driver / Biker</option>
+                      <option value="Electrician">Electrician</option>
+                      <option value="Electrical_Engineer">
+                        Electrical Engineer
+                      </option>
+                      <option value="Environmental_Engineer">
+                        Environmental Engineer
+                      </option>
+                      <option value="Event_Manager">Event Manager</option>
+                      <option value="Firefighter">Firefighter</option>
+                      <option value="Foreman">Foreman / Supervisor</option>
+                      <option value="Generator_Operator">
+                        Generator Operator
+                      </option>
+                      <option value="Graphics_Designer">
+                        Graphics Designer
+                      </option>
+                      <option value="Gym_Instructor">Gym Instructor</option>
+                      <option value="Hair_Stylist">
+                        Hair Stylist / Barber
+                      </option>
+                      <option value="HR">HR</option>
+                      <option value="HSE">HSE</option>
+                      <option value="IT_Engineer">IT Engineer</option>
+                      <option value="Journalist">Journalist</option>
+                      <option value="Lawyer">Lawyer</option>
+                      <option value="Librarian">Librarian</option>
+                      <option value="Loader">Loader</option>
+                      <option value="Machinist">Machinist</option>
+                      <option value="Maid">Maid / Khadim(a)</option>
+                      <option value="Marketing">Marketing</option>
+                      <option value="Mason">Mason</option>
+                      <option value="Masseur">
+                        Masseur / Massage Therapist
+                      </option>
+                      <option value="Mechanical_Engineer">
+                        Mechanical Engineer
+                      </option>
+                      <option value="Mechanic">Mechanic</option>
+                      <option value="Metal_Worker">Metal Worker</option>
+                      <option value="Nurse">Nurse</option>
+                      <option value="Painter">Painter</option>
+                      <option value="Pharmacist">Pharmacist</option>
+                      <option value="Photographer">Photographer</option>
+                      <option value="Petroleum_Engineer">
+                        Petroleum Engineer
+                      </option>
+                      <option value="Plumber">Plumber</option>
+                      <option value="Police_Officer">Police Officer</option>
+                      <option value="PRO">PRO</option>
+                      <option value="Psychologist">Psychologist</option>
+                      <option value="Quran_Teacher">Quran Teacher</option>
+                      <option value="Radiologist">Radiologist</option>
+                      <option value="Receptionist">Receptionist</option>
+                      <option value="Sales">Sales</option>
+                      <option value="Secretary">Secretary</option>
+                      <option value="Security">Security</option>
+                      <option value="Software_Engineer">
+                        Software Engineer
+                      </option>
+                      <option value="Steel_Fixer">Steel Fixer</option>
+                      <option value="Storekeeper">Storekeeper</option>
+                      <option value="Supply_Chain">
+                        Supply Chain / Procurement
+                      </option>
+                      <option value="Tailor">Tailor</option>
+                      <option value="Tea_Boy">Tea Boy / Office Boy</option>
+                      <option value="Teacher">Teacher</option>
+                      <option value="Therapist">Therapist</option>
+                      <option value="Trainer">Trainer</option>
+                      <option value="Typist">Typist</option>
+                      <option value="Welder">Welder</option>
+                      <option value="Steel">Steel</option>
+                      <option value="Not_Listed">Not listed</option>
+                    </select>
+
+                    <span class="hidden c-text-xs text-red-500 sm:text-xs pl-3"
+                      >Error here</span
+                    >
+                  </div>
+                  <!-- Highest Qualification  -->
+                  <div class="flex flex-col gap-0.5">
+                    <label
+                      for="highest_Qualification"
+                      class="font-medium text-xs sm:text-sm pl-2"
+                    >
+                      Highest Qualification
+                    </label>
+                    <select
+                      required
+                      name=""
+                      id="highest_Qualification"
+                      class="w-full rounded-full border px-2 py-3 text-xs sm:py-3.5 focus:outline-none focus:ring-1 focus:ring-[#3cbf0a] shadow-sm shadow-black/5"
+                    >
+                      <option value="" disabled selected>
+                        Highest Qualification
+                      </option>
+                      <option value="Matric">Matric</option>
+                      <option value="Intermediate">Intermediate</option>
+                      <option value="Diploma">Diploma</option>
+                      <option value="Bachelors">Bachelors</option>
+                      <option value="Masters">Masters</option>
+                      <option value="PhD">PhD</option>
+                      <option value="Not_listed">Not listed</option>
+                    </select>
+
+                    <span class="hidden c-text-xs text-red-500 sm:text-xs pl-3"
+                      >Error here</span
+                    >
+                  </div>
+
+                  <!-- Total Experience  -->
+                  <div class="flex flex-col gap-0.5">
+                    <label
+                      for="total_Experience"
+                      class="font-medium text-xs sm:text-sm pl-2"
+                    >
+                      Total Experience</label
+                    >
+                    <select
+                      required
+                      name=""
+                      id="total_Experience"
+                      class="w-full rounded-full border px-2 py-3 text-xs sm:py-3.5 focus:outline-none focus:ring-1 focus:ring-[#3cbf0a] shadow-sm shadow-black/5"
+                    >
+                      <option value="" disabled selected>
+                        Total Experience
+                      </option>
+                      <option value="No_Experience">No Experience</option>
+                      <option value="1year">1 - 2 Years</option>
+                      <option value="3year">3 - 5 Years</option>
+                      <option value="6year">6 - 10 Years</option>
+                      <option value="11year">11 - 20 Years</option>
+                      <option value="20year">20+ Years</option>
+                    </select>
+
+                    <span class="hidden c-text-xs text-red-500 sm:text-xs pl-3"
+                      >Error here</span
+                    >
+                  </div>
+
+                  <!-- Gulf Experience  -->
+                  <!-- <div class="flex flex-col gap-0.5">
+                    <label
+                      for="gulf_Experience"
+                      class="font-medium text-xs sm:text-sm pl-2"
+                    >
+                      Gulf Experience</label
+                    >
+                    <select
+                      required
+                      name=""
+                      id="gulf_Experience"
+                      class="w-full rounded-full border px-2 py-3 text-xs sm:py-3.5 focus:outline-none focus:ring-1 focus:ring-[#3cbf0a] shadow-sm shadow-black/5"
+                    >
+                      <option value="" disabled selected>
+                        Gulf Experience
+                      </option>
+                      <option value="gulf_No_Experience">No Experience</option>
+                      <option value="gulf_1year">1 - 2 Years</option>
+                      <option value="gulf_3year">3 - 5 Years</option>
+                      <option value="gulf_6year">6 - 10 Years</option>
+                      <option value="gulf_11year">11 - 20 Years</option>
+                      <option value="gulf_20year">20+ Years</option>
+                    </select>
+                    
+                    <span class="hidden c-text-xs text-red-500 sm:text-xs pl-3">Error here</span>
+                  </div> -->
+
+                  <!-- Driving License  -->
+                  <!-- <div class="flex flex-col gap-0.5">
+                    <label
+                      for="driving_License"
+                      class="font-medium text-xs sm:text-sm pl-2"
+                    >
+                      Driving License</label
+                    >
+                    <select
+                      required
+                      name=""
+                      id="driving_License"
+                      class="w-full rounded-full border px-2 py-3 text-xs sm:py-3.5 focus:outline-none focus:ring-1 focus:ring-[#3cbf0a] shadow-sm shadow-black/5"
+                    >
+                      <option value="" disabled selected>
+                        Driving License
+                      </option>
+                      <option value="yes">Yes</option>
+                      <option value="no">No</option>
+                      <option value="Under_progress">Under progress</option>
+                    </select>
+                    
+                    <span class="hidden c-text-xs text-red-500 sm:text-xs pl-3">Error here</span>
+                  </div> -->
+
+                  <!-- Current Location  -->
+                  <div class="flex flex-col gap-0.5">
+                    <label
+                      for="curr_Location"
+                      class="font-medium text-xs sm:text-sm pl-2"
+                    >
+                      Current Location</label
+                    >
+                    <select
+                      required
+                      name=""
+                      id="curr_Location"
+                      class="w-full rounded-full border px-2 py-3 text-xs sm:py-3.5 focus:outline-none focus:ring-1 focus:ring-[#3cbf0a] shadow-sm shadow-black/5"
+                    >
+                      <option value="" disabled selected>
+                        Current Location
+                      </option>
+                      <option value="Karachi">Karachi</option>
+                      <option value="Islamabad">Islamabad</option>
+                      <option value="Lahore">Lahore</option>
+                      <option value="Multan">Multan</option>
+                      <option value="Faisalabad">Faisalabad</option>
+                      <option value="Quetta">Quetta</option>
+                      <option value="Peshawar">Peshawar</option>
+                      <option value="Sargodha">Sargodha</option>
+                      <option value="Rawalpindi">Rawalpindi</option>
+                      <option value="Gujranwala">Gujranwala</option>
+                      <option value="Hyderabad">Hyderabad</option>
+                      <option value="Bahawalpur">Bahawalpur</option>
+                      <option value="Sukkur">Sukkur</option>
+                      <option value="Larkana">Larkana</option>
+                      <option value="Jhang">Jhang</option>
+                      <option value="Sialkot">Sialkot</option>
+                      <option value="Sheikhupura">Sheikhupura</option>
+                      <option value="Gwadar">Gwadar</option>
+                      <option value="Gilgit_Baltistan">Gilgit Baltistan</option>                      
+                    </select>
+
+                    <span class="hidden c-text-xs text-red-500 sm:text-xs pl-3"
+                      >Error here</span
+                    >
+                  </div>
+
+                  <!-- Nationality  -->
+                  <!-- <div class="flex flex-col gap-0.5">
+                    <label for="nationality" class="font-medium text-xs sm:text-sm pl-2">
+                      Nationality</label
+                    >
+
+                    <select
+                      required
+                      name=""
+                      id="nationality"
+                      class="w-full rounded-full border px-2 py-3 text-xs sm:py-3.5 focus:outline-none focus:ring-1 focus:ring-[#3cbf0a] shadow-sm shadow-black/5"
+                    >
+                      <option value="" disabled selected>Nationality</option>
+                      <option value="American">American</option>
+                      <option value="Bangladeshi">Bangladeshi</option>
+                      <option value="British">British</option>
+                      <option value="Canadian">Canadian</option>
+                      <option value="Egyptian">Egyptian</option>
+                      <option value="Filipino">Filipino</option>
+                      <option value="French">French</option>
+                      <option value="German">German</option>
+                      <option value="Ghanaian">Ghanaian</option>
+                      <option value="Indian">Indian</option>
+                      <option value="Indonesian">Indonesian</option>
+                      <option value="Jordanian">Jordanian</option>
+                      <option value="Kenyan">Kenyan</option>
+                      <option value="Lebanese">Lebanese</option>
+                      <option value="Palestine">Palestine</option>
+                      <option value="Malaysian">Malaysian</option>
+                      <option value="Moroccan">Moroccan</option>
+                      <option value="Nepalese">Nepalese</option>
+                      <option value="Pakistani">Pakistani</option>
+                      <option value="South_African">South African</option>
+                      <option value="Sri_lankan">Sri Lankan</option>
+                      <option value="Sudanese">Sudanese</option>
+                      <option value="Sudanese">Sudanese</option>
+                      <option value="Syrian">Syrian</option>
+                      <option value="Tunisian">Tunisian</option>
+                      <option value="Turkish">Turkish</option>
+                      <option value="Ugandan">Ugandan</option>
+                      <option value="Not_listed">Not listed</option>
+                    </select>
+                    
+                    <span class="hidden c-text-xs text-red-500 sm:text-xs pl-3">Error here</span>
+                  </div> -->
+
+                  <!-- employed/unemployed toggle  -->
+                  <div class="form-group flex flex-col gap-1">
+                    <label class="font-medium text-xs sm:text-sm pl-2"
+                      >Are you currently employed?</label
+                    >
+                    <div class="flex items-center gap-4 pl-2">
+                      <div class="flex gap-1 text-xs items-center">
+                        <input
+                          class="c-accent"
+                          type="radio"
+                          id="employed"
+                          name="employment"
+                          value="yes"
+                          onclick="toggleFields()"
+                        />
+                        <label for="employed" class="text-xs c-accent"
+                          >Yes</label
+                        >
+                      </div>
+
+                      <div class="flex gap-1 text-xs items-center">
+                        <input
+                          class="c-accent"
+                          type="radio"
+                          id="unemployed"
+                          name="employment"
+                          value="no"
+                          onclick="toggleFields()"
+                        />
+                        <label for="unemployed" class="text-xs">No</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Fields for employed -->
+                  <div id="employedFields" class="hidden flex flex-col gap-1">
+                    <!-- designation  -->
+                    <div class="form-group flex flex-col gap-0.5">
+                      <label
+                        for="curr_designation"
+                        class="font-medium text-xs sm:text-sm pl-2"
+                      >
+                        Current Designation</label
+                      >
+                      <input
+                      required
+                      name=""
+                      id="curr_designation"
+                      type="text"
+                      class="border w-full rounded-full text-xs px-2 py-3 sm:py-3.5 focus:border-[#3cbf0a] focus:outline-none shadow-sm shadow-black/5"
+                      placeholder="Current Designation"
+                    />
+                      <span
+                        class="hidden c-text-xs text-red-500 sm:text-xs pl-3"
+                        >Error here</span
+                      >
+                    </div>
+                    <!-- organisation name  -->
+                    <div class="form-group flex flex-col gap-0.5">
+                      <label
+                        for="org_name"
+                        class="font-medium text-xs sm:text-sm pl-2"
+                      >
+                        Organisation Name</label
+                      >
+                      <input
+                      required
+                      name=""
+                      id="org_name"
+                      type="text"
+                      class="border w-full rounded-full text-xs px-2 py-3 sm:py-3.5 focus:border-[#3cbf0a] focus:outline-none shadow-sm shadow-black/5"
+                      placeholder="Organisation Name"
+                    />
+                      <span
+                        class="hidden c-text-xs text-red-500 sm:text-xs pl-3"
+                        >Error here</span
+                      >
+                    </div>
+                    <!-- Select Industry  -->
+                    <div class="form-group flex flex-col gap-0.5">
+                      <label
+                        for="select_industry"
+                        class="font-medium text-xs sm:text-sm pl-2"
+                      >
+                        Select Industry</label
+                      >
+                      <select
+                        required
+                        name=""
+                        id="select_industry"
+                        class="w-full rounded-full border px-2 py-3 text-xs sm:py-3.5 focus:outline-none focus:ring-1 focus:ring-[#3cbf0a] shadow-sm shadow-black/5"
+                      >
+                        <option value="" disabled selected>
+                          Select Industry
+                        </option>
+                        <option value="advertisementAgency">
+                          Advertisement Agency Jobs
+                        </option>
+                        <option value="airline">Airline Jobs</option>
+                        <option value="automotive">Automotive Jobs</option>
+                        <option value="construction">Construction Jobs</option>
+                        <option value="consultancy">Consultancy Jobs</option>
+                        <option value="deliveryService">
+                          Delivery Service Jobs
+                        </option>
+                        <option value="ecom">Ecommerce Jobs</option>
+                        <option value="educationInst">
+                          Education/Institute Jobs
+                        </option>
+                        <option value="energySector">Energy Sector Jobs</option>
+                        <option value="fashionAndBeauty">
+                          Fashion and Beauty Jobs
+                        </option>
+                        <option value="FMCG">FMCG Jobs</option>
+                        <option value="freelance">Freelance Jobs</option>
+                        <option value="GeneralTrading">General Trading Jobs</option>
+    
+                        <option value="hospital">Hospital/Pharmacy Jobs</option>
+                        <option value="hotel">Hotel/Resort Jobs</option>
+                        <option value="household">Household Jobs</option>
+                        <option value="legalServices">Legal Services Jobs</option>
+                        <option value="manufacturing">
+                          Manufacturing Industry Jobs
+                        </option>
+    
+                        <option value="mediaAndNews">Media and News Jobs</option>
+                        <option value="oilAndGas">Oil and Gas Jobs</option>
+                        <option value="pharma">Pharma Jobs</option>
+                        <option value="printingAndPacking">
+                          Printing and Packaging Jobs
+                        </option>
+                        <option value="realEstate">Real Estate Jobs</option>
+                        <option value="retail">Retail/Shoping Center Jobs</option>
+                        <option value="Recruitment">Recruitment Jobs</option>
+                        <option value="Restaurant">Restaurant Jobs</option>
+                        <option value="softwareHouse">Software House Jobs</option>
+                        <option value="sportsAndLeisure">
+                          Sports and Leisure Jobs
+                        </option>
+                        <option value="telecom">Telecom Jobs</option>
+                        <option value="textile">Textile Jobs</option>
+                        <option value="otherIndustry">Other Industry</option>
+                      </select>
+
+                      <span
+                        class="hidden c-text-xs text-red-500 sm:text-xs pl-3"
+                        >Error here</span
+                      >
+                    </div>
+                    <!-- Employment Type  -->
+                    <div class="form-group flex flex-col gap-0.5">
+                      <label
+                        for="employment_type"
+                        class="font-medium text-xs sm:text-sm pl-2"
+                      >
+                        Employment Type</label
+                      >
+                      <select
+                        required
+                        name=""
+                        id="employment_type"
+                        class="w-full rounded-full border px-2 py-3 text-xs sm:py-3.5 focus:outline-none focus:ring-1 focus:ring-[#3cbf0a] shadow-sm shadow-black/5"
+                      >
+                        <option value="" disabled selected>
+                          Employment Type
+                        </option>
+                        <option value="full_time">Full-time</option>
+                        <option value="part_time">Part-time</option>
+                        <option value="contract">Contract</option>
+                      </select>
+
+                      <span
+                        class="hidden c-text-xs text-red-500 sm:text-xs pl-3"
+                        >Error here</span
+                      >
+                    </div>
+                    <!-- Current Salary  -->
+                    <div class="form-group flex flex-col gap-0.5">
+                      <label
+                        for="currSalary"
+                        class="font-medium text-xs sm:text-sm pl-2"
+                      >
+                        Current Salary</label
+                      >
+                      <select
+                        required
+                        name=""
+                        id="currSalary"
+                        class="w-full rounded-full border px-2 py-3 text-xs sm:py-3.5 focus:outline-none focus:ring-1 focus:ring-[#3cbf0a] shadow-sm shadow-black/5"
+                      >
+                        <option value="" disabled selected>
+                          Your Current Salary
+                        </option>
+                        <option value="40k">40k Rs</option>
+                        <option value="80k">80k Rs</option>
+                      </select>
+
+                      <span
+                        class="hidden c-text-xs text-red-500 sm:text-xs pl-3"
+                        >Error here</span
+                      >
+                    </div>
+                  </div>
+
+                  <!-- Fields for unemployed -->
+                  <div id="unemployedFields" class="hidden flex flex-col gap-1">
+                    <!-- Target Job Role  -->
+                    <div class="form-group flex flex-col gap-0.5">
+                      <label
+                        for="target_job_role"
+                        class="font-medium text-xs sm:text-sm pl-2"
+                      >
+                        Target Job Role</label
+                      >
+                      <input
+                      required
+                      name=""
+                      id="target_job_role"
+                      type="text"
+                      class="border w-full rounded-full text-xs px-2 py-3 sm:py-3.5 focus:border-[#3cbf0a] focus:outline-none shadow-sm shadow-black/5"
+                      placeholder="Target Job Role"
+                    />
+
+                      <span
+                        class="hidden c-text-xs text-red-500 sm:text-xs pl-3"
+                        >Error here</span
+                      >
+                    </div>
+
+                    <!-- Expected Salary  -->
+                    <div class="form-group flex flex-col gap-0.5">
+                      <label
+                        for="expectedSalary"
+                        class="font-medium text-xs sm:text-sm pl-2"
+                      >
+                        Expected Salary</label
+                      >
+                      <select
+                        required
+                        name=""
+                        id="expectedSalary"
+                        class="w-full rounded-full border px-2 py-3 text-xs sm:py-3.5 focus:outline-none focus:ring-1 focus:ring-[#3cbf0a] shadow-sm shadow-black/5"
+                      >
+                        <option value="" disabled selected>
+                          Your Expected Salary
+                        </option>
+                        <option value="40k">40k Rs</option>
+                        <option value="80k">80k Rs</option>
+                      </select>
+
+                      <span
+                        class="hidden c-text-xs text-red-500 sm:text-xs pl-3"
+                        >Error here</span
+                      >
+                    </div>
+
+                    
+                  <!-- LinkedIn Profile  -->
+                  <div class="flex flex-col gap-0.5">
+                    <label
+                      for="linkedin"
+                      class="font-medium text-xs sm:text-sm pl-2"
+                    >
+                      LinkedIn Profile Link (Optional)</label
+                    >
+                    <input
+                      type="url"
+                      id="linkedin"
+                      class="border w-full rounded-full text-xs px-2 py-3 sm:py-3.5 focus:border-[#3cbf0a] focus:outline-none shadow-sm shadow-black/5"
+                      placeholder="Please Provide the url"
+                    />
+
+                    <span class="hidden c-text-xs text-red-500 sm:text-xs pl-3"
+                      >Error here</span
+                    >
+                  </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <!-- Personal information (Only visible to Admin)  -->
+              <div
+                class="flex flex-col gap-1 bg-stone-100 hover:bg-stone-50 p-2 rounded-2xl shadow-sm shadow-black/10"
+              >
+                <h3 class="text-sm sm:text-base b-color font-semibold pl-1">
+                  Personal Information <span class="font-normal">(Only visible to Admin)</span> 
+                </h3>
+                <div class="flex flex-col gap-3">
+                  
+                  <!-- CNIC Number  -->
+                  <div class="flex flex-col gap-0.5">
+                    <label
+                      for="cnic_number"
+                      class="font-medium text-xs sm:text-sm pl-2"
+                    >
+                    Provide your CNIC Number</label
+                    >
+                    <input
+                      required
+                      type="number"
+                      id="cnic_number"
+                      class="border w-full rounded-full text-xs px-2 py-3 sm:py-3.5 focus:border-[#3cbf0a] focus:outline-none shadow-sm shadow-black/5"
+                      placeholder="Please Enter Your Number"
+                    />
+                    <span class="hidden c-text-xs text-red-500 sm:text-xs pl-3"
+                      >Error here</span
+                    >
+                  </div>
+
+                  
+                  <!-- Date Of Birth  -->
+                  <div class="flex flex-col gap-0.5">
+                    <label
+                      for="dob"
+                      class="font-medium text-xs sm:text-sm pl-2"
+                    >
+                      Date Of Birth</label
+                    >
+                    <input
+                      required
+                      type="date"
+                      id="dob"
+                      class="border w-full rounded-full text-xs px-2 py-3 sm:py-3.5 focus:border-[#3cbf0a] focus:outline-none shadow-sm shadow-black/5"
+                    />
+
+                    <span class="hidden c-text-xs text-red-500 sm:text-xs pl-3"
+                      >Error here</span
+                    >
+                  </div>
+
+                  <!-- Email  -->
+                  <div class="flex flex-col gap-0.5">
+                    <label
+                    for="email"
+                    class="font-medium text-xs sm:text-sm pl-2"
+                  >
+                    Email</label
+                  >
+                    <input
+                      required
+                      type="email"
+                      id="email"
+                      class="border w-full rounded-full text-xs px-2 py-3 sm:py-3.5 focus:border-[#3cbf0a] focus:outline-none shadow-sm shadow-black/5"
+                      placeholder="Please Enter Your Email"
+                    />
+
+                    <span class="hidden c-text-xs text-red-500 sm:text-xs pl-3"
+                      >Error here</span
+                    >
+                  </div>
+
+                  <!-- Contact Number  -->
+                  <div class="flex flex-col gap-0.5">
+                    <label
+                      for="number"
+                      class="font-medium text-xs sm:text-sm pl-2"
+                    >
+                      Contact Number</label
+                    >
+                    <input
+                      required
+                      type="number"
+                      id="number"
+                      class="border w-full rounded-full text-xs px-2 py-3 sm:py-3.5 focus:border-[#3cbf0a] focus:outline-none shadow-sm shadow-black/5"
+                      placeholder="Please Enter Your Number"
+                    />
+                    <div class="flex justify-between px-3">
+                      <div class="flex">
+                        <span class="text-stone-700 c-text-xs">
+                          Do you want to Public Your Number</span
+                        >
+                      </div>
+                      <!-- yes no radio -->
+                      <div class="flex gap-2">
+                        <!-- yes  -->
+                        <div class="flex gap-0.5 c-text-uxs items-center">
+                          <input
+                            type="radio"
+                            name="contactNum"
+                            class="c-accent"
+                            id="yes"
+                          />
+                          <label for="yes" class="c-text-sm">Yes</label>
+                        </div>
+                        <!-- no  -->
+                        <div class="flex gap-0.5 c-text-uxs items-center">
+                          <input
+                            type="radio"
+                            name="contactNum"
+                            class="c-accent"
+                            id="no"
+                          />
+                          <label for="no" class="c-text-sm">No</label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <span class="hidden c-text-xs text-red-500 sm:text-xs pl-3"
+                      >Error here</span
+                    >
+                  </div>
+
+                  
+                  
+
+                </div>
+              </div>
+
+              <!-- submit button  -->
+              <button
+                type="submit"
+                class="px-4 py-2 m-btn text-sm rounded-full shadow-sm shadow-black/15"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </main>
+
+      <footer class="px-0 w-full flex justify-center">
+        <div
+          class="h-12 fixed bottom-0 z-50 flex gap-2 text-white items-center justify-between w-full head-foot-width px-4 md:px-10 py-1 bg-[#3cbf0a] bg-opacity-90"
+        >
+          <a href="./find-job.html" class="flex">
+            <div class="flex flex-col items-center gap-1 md:gap-1.5">
+              <img src="../assets/job.svg" alt="" class="h-4 md:h-5" />
+              <span
+                class="font-medium text-xs sm:text-sm text-white tracking-tight footer-leading"
+                >Find Job</span
+              >
+            </div>
+          </a>
+
+          <a href="./professional-resume.html" class="flex">
+            <div class="flex flex-col items-center gap-1 md:gap-1.5">
+              <img src="../assets/cv.svg" alt="" class="h-4 md:h-5" />
+              <span
+                class="font-medium text-xs sm:text-sm text-white tracking-tight footer-leading"
+                >Pro CV</span
+              >
+            </div>
+          </a>
+
+          <a href="./feature-profile.html" class="flex">
+            <div class="flex flex-col items-center gap-1 md:gap-1.5">
+              <img
+                src="../assets/becomeFeature.svg"
+                alt=""
+                class="h-4 md:h-5"
+              />
+              <span
+                class="font-medium text-xs sm:text-sm text-white tracking-tight footer-leading"
+                >Become Feature</span
+              >
+            </div>
+          </a>
+
+          <a href="./register-profile.html" class="flex">
+            <div class="flex flex-col items-center gap-1 md:gap-1.5">
+              <img src="../assets/register.svg" alt="" class="h-4 md:h-5" />
+              <span
+                class="font-medium text-xs sm:text-sm text-white tracking-tight footer-leading"
+                >Register</span
+              >
+            </div>
+          </a>
+        </div>
+
+        <!-- WhatsApp icon  -->
+        <div
+          class="fixed bottom-14 right-2 bg-slate-400 flex items-center hover:bg-green-500 h-7 w-28 md:h-9 md:w-36 rounded-full z-20 opacity-90"
+        >
+          <a href="" class="flex w-full">
+            <div class="flex justify-between items-center w-full">
+              <div class="ml-2 md:ml-3 flex w-full">
+                <span
+                  class="flex font-medium text-white tracking-tight c-text-xxs md:!text-xs break-keep wa-text top-2 md:top-2.5"
+                  >Join Whatsapp</span
+                >
+                <span
+                  class="flex font-medium text-white tracking-tight c-text-xxs md:!text-xs break-keep wa-text top-2 md:top-2.5"
+                  >For Job Alerts</span
+                >
+              </div>
+
+              <div
+                class="flex justify-end bg-green-400 hover:bg-green-500 rounded-full ml-auto h-8 md:h-10 md:px-2.5 px-2 whatsapp-btn"
+              >
+                <img
+                  src="../assets/whatsapp.svg"
+                  class="w-6 md:w-8 flex whatsapp-btn"
+                  alt=""
+                />
+              </div>
+            </div>
+          </a>
+        </div>
+      </footer>
+    </div>
+
+    <!-- JobSeeker tab  -->
+    <div
+      id="jobSeekerTab"
+      class="hidden md:w-full flex md:items-center flex-col"
+    >
+      <main class="main !mt-14 !mb-14">
+        <!-- body  -->
+        <div class="flex flex-col gap-4 rounded-xl">
+          <!-- find Job  -->
+          <a href="./find-job.html" class="">
+            <div
+              class="flex flex-col h-[300px] c-md:h-[350px] md:h-[390px] group bg-[#3cbf0a] hover:bg-[#3dbf0af1] rounded-2xl overflow-hidden relative"
+            >
+              <!-- image section  -->
+              <div
+                class="relative w-full h-[200px] c-md:h-[240px] md:h-[270px] rounded-t-2xl"
+              >
+                <img
+                  src="../assets/For Jobseekers.webp"
+                  class="w-full h-full object-cover object-center transition-transform duration-500"
+                  alt="jobseeker"
+                />
+              </div>
+
+              <!-- text section  -->
+              <div
+                class="flex border-t-8 border-gray-300 group-hover:border-white relative"
+              >
+                <!-- spinner  -->
+                <div
+                  class="absolute -top-12 left-[calc(80%-40px)] flex items-center"
+                >
+                  <span
+                    class="h-20 w-20 flex items-center justify-center rounded-full border-8 border-white"
+                  >
+                    <circle
+                      class="absolute h-16 w-16 md:text-xl growing-btn animate-growing-btn flex items-center justify-center rounded-full"
+                    ></circle>
+
+                    <span
+                      class="absolute h-12 w-12 flex items-center justify-center rounded-full bg-white"
+                    >
+                      <img
+                        src="../assets/right-angle-green.svg"
+                        alt=""
+                        class="flex w-6"
+                      />
+                    </span>
+                  </span>
+                </div>
+
+                <div class="flex flex-col gap-1 px-4 py-2 mt-4">
+                  <h2 class="text-white text-lg md:text-xl font-semibold">
+                    Find Job
+                  </h2>
+
+                  <span class="text-stone-100 text-sm md:text-base"
+                    >Find the latest jobs in Qatar.</span
+                  >
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!-- whatsapp  -->
+          <a href="" class="">
+            <div
+              class="flex flex-col h-[300px] c-md:h-[350px] md:h-[390px] group bg-[#3cbf0a] hover:bg-[#3dbf0af1] rounded-2xl overflow-hidden relative"
+            >
+              <!-- image section  -->
+              <div
+                class="relative w-full h-[200px] c-md:h-[240px] md:h-[270px] rounded-t-2xl"
+              >
+                <img
+                  src="../assets/whatsapp.webp"
+                  class="w-full h-full object-cover object-center transition-transform duration-500"
+                  alt="jobseeker"
+                />
+              </div>
+
+              <!-- text section  -->
+              <div
+                class="flex border-t-8 border-gray-300 group-hover:border-white relative"
+              >
+                <!-- spinner  -->
+                <div
+                  class="absolute -top-12 left-[calc(80%-40px)] flex items-center"
+                >
+                  <span
+                    class="h-20 w-20 flex items-center justify-center rounded-full border-8 border-white"
+                  >
+                    <circle
+                      class="absolute h-16 w-16 growing-btn animate-growing-btn flex items-center justify-center rounded-full"
+                    ></circle>
+
+                    <span
+                      class="absolute h-12 w-12 flex items-center justify-center rounded-full bg-white"
+                    >
+                      <img
+                        src="../assets/right-angle-green.svg"
+                        alt=""
+                        class="flex w-6"
+                      />
+                    </span>
+                  </span>
+                </div>
+
+                <div class="flex flex-col gap-1 px-4 py-2 mt-4">
+                  <h2 class="text-white text-lg md:text-xl font-semibold">
+                    Join WhatsApp Channel
+                  </h2>
+
+                  <span class="text-stone-100 text-sm md:text-base"
+                    >Get daily job alerts on WhatsApp.</span
+                  >
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!-- feature profile  -->
+          <a href="./feature-profile.html" class="">
+            <div
+              class="flex flex-col h-[300px] c-md:h-[350px] md:h-[390px] group bg-[#3cbf0a] hover:bg-[#3dbf0af1] rounded-2xl overflow-hidden relative"
+            >
+              <!-- image section  -->
+              <div
+                class="relative w-full h-[200px] c-md:h-[240px] md:h-[270px] rounded-t-2xl"
+              >
+                <img
+                  src="../assets/jobseeker.webp"
+                  class="w-full h-full object-cover object-center transition-transform duration-500"
+                  alt="jobseeker"
+                />
+              </div>
+
+              <!-- text section  -->
+              <div
+                class="flex border-t-8 border-gray-300 group-hover:border-white relative"
+              >
+                <!-- spinner  -->
+                <div
+                  class="absolute -top-12 left-[calc(80%-40px)] flex items-center"
+                >
+                  <span
+                    class="h-20 w-20 flex items-center justify-center rounded-full border-8 border-white"
+                  >
+                    <circle
+                      class="absolute h-16 w-16 md:text-xl growing-btn animate-growing-btn flex items-center justify-center rounded-full"
+                    ></circle>
+
+                    <span
+                      class="absolute h-12 w-12 flex items-center justify-center rounded-full bg-white"
+                    >
+                      <img
+                        src="../assets/right-angle-green.svg"
+                        alt=""
+                        class="flex w-6"
+                      />
+                    </span>
+                  </span>
+                </div>
+
+                <div class="flex flex-col gap-1 px-4 py-2 mt-4">
+                  <h2 class="text-white text-lg md:text-xl font-semibold">
+                    Feature your profile
+                  </h2>
+
+                  <span class="text-stone-100 text-sm md:text-base"
+                    >Showcase Your Profile, Get Noticed.</span
+                  >
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Get a Professional Resume  -->
+          <a href="./professional-resume.html" class="">
+            <div
+              class="flex flex-col h-[300px] c-md:h-[350px] md:h-[390px] group bg-[#3cbf0a] hover:bg-[#3dbf0af1] rounded-2xl overflow-hidden relative"
+            >
+              <!-- image section  -->
+              <div
+                class="relative w-full h-[200px] c-md:h-[240px] md:h-[270px] rounded-t-2xl"
+              >
+                <img
+                  src="../assets/business.webp"
+                  class="w-full h-full object-cover object-center transition-transform duration-500"
+                  alt="jobseeker"
+                />
+              </div>
+
+              <!-- text section  -->
+              <div
+                class="flex border-t-8 border-gray-300 group-hover:border-white relative"
+              >
+                <!-- spinner  -->
+                <div
+                  class="absolute -top-12 left-[calc(80%-40px)] flex items-center"
+                >
+                  <span
+                    class="h-20 w-20 flex items-center justify-center rounded-full border-8 border-white"
+                  >
+                    <circle
+                      class="absolute h-16 w-16 growing-btn animate-growing-btn flex items-center justify-center rounded-full"
+                    ></circle>
+
+                    <span
+                      class="absolute h-12 w-12 flex items-center justify-center rounded-full bg-white"
+                    >
+                      <img
+                        src="../assets/right-angle-green.svg"
+                        alt=""
+                        class="flex w-6"
+                      />
+                    </span>
+                  </span>
+                </div>
+
+                <div class="flex flex-col gap-1 px-4 py-2 mt-4">
+                  <h2 class="text-white text-lg md:text-xl font-semibold">
+                    Get a Professional Resume
+                  </h2>
+
+                  <span class="text-stone-100 text-sm md:text-base"
+                    >Your Dream Job Starts with a Perfect Resume.</span
+                  >
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </main>
+
+      <footer class="px-0 w-full flex justify-center">
+        <div
+          class="h-12 fixed bottom-0 z-50 flex gap-2 text-white items-center justify-between w-full head-foot-width px-4 md:px-10 py-1 bg-[#3cbf0a] bg-opacity-90"
+        >
+          <a href="./find-job.html" class="flex">
+            <div class="flex flex-col items-center gap-1 md:gap-1.5">
+              <img src="../assets/job.svg" alt="" class="h-4 md:h-5" />
+              <span
+                class="font-medium text-xs sm:text-sm text-white tracking-tight footer-leading"
+                >Find Job</span
+              >
+            </div>
+          </a>
+
+          <a href="./professional-resume.html" class="flex">
+            <div class="flex flex-col items-center gap-1 md:gap-1.5">
+              <img src="../assets/cv.svg" alt="" class="h-4 md:h-5" />
+              <span
+                class="font-medium text-xs sm:text-sm text-white tracking-tight footer-leading"
+                >Pro CV</span
+              >
+            </div>
+          </a>
+
+          <a href="./feature-profile.html" class="flex">
+            <div class="flex flex-col items-center gap-1 md:gap-1.5">
+              <img
+                src="../assets/becomeFeature.svg"
+                alt=""
+                class="h-4 md:h-5"
+              />
+              <span
+                class="font-medium text-xs sm:text-sm text-white tracking-tight footer-leading"
+                >Become Feature</span
+              >
+            </div>
+          </a>
+
+          <a href="./register-profile.html" class="flex">
+            <div class="flex flex-col items-center gap-1 md:gap-1.5">
+              <img src="../assets/register.svg" alt="" class="h-4 md:h-5" />
+              <span
+                class="font-medium text-xs sm:text-sm text-white tracking-tight footer-leading"
+                >Register</span
+              >
+            </div>
+          </a>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Business tab  -->
+    <div
+      id="businessTab"
+      class="hidden md:w-full flex md:items-center flex-col"
+    >
+      <main class="main !mt-14 !mb-14">
+        <!-- body  -->
+        <div class="flex flex-col gap-4 rounded-xl">
+          <!-- find talent  -->
+          <a href="./find-talent.html" class="">
+            <div
+              class="flex flex-col h-[300px] c-md:h-[350px] md:h-[390px] group bg-[#3cbf0a] hover:bg-[#3dbf0af1] rounded-2xl overflow-hidden relative"
+            >
+              <!-- image section  -->
+              <div
+                class="relative w-full h-[200px] c-md:h-[240px] md:h-[270px] rounded-t-2xl"
+              >
+                <img
+                  src="../assets/find-talent.webp"
+                  class="w-full h-full object-cover object-center transition-transform duration-500"
+                  alt="jobseeker"
+                />
+              </div>
+
+              <!-- text section  -->
+              <div
+                class="flex border-t-8 border-gray-300 group-hover:border-white relative"
+              >
+                <!-- spinner  -->
+                <div
+                  class="absolute -top-12 left-[calc(80%-40px)] flex items-center"
+                >
+                  <span
+                    class="h-20 w-20 flex items-center justify-center rounded-full border-8 border-white"
+                  >
+                    <circle
+                      class="absolute h-16 w-16 growing-btn animate-growing-btn flex items-center justify-center rounded-full"
+                    ></circle>
+
+                    <span
+                      class="absolute h-12 w-12 flex items-center justify-center rounded-full bg-white"
+                    >
+                      <img
+                        src="../assets/right-angle-green.svg"
+                        alt=""
+                        class="flex w-6"
+                      />
+                    </span>
+                  </span>
+                </div>
+
+                <div class="flex flex-col gap-1 px-4 py-2 mt-4">
+                  <h2 class="text-white text-lg md:text-xl font-semibold">
+                    Find Talent
+                  </h2>
+
+                  <span class="text-stone-100 text-sm md:text-base"
+                    >Hire smarter, Find top talent.</span
+                  >
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!-- Post a Job  -->
+          <a href="./post-job.html" class="">
+            <div
+              class="flex flex-col h-[300px] c-md:h-[350px] md:h-[390px] group bg-[#3cbf0a] hover:bg-[#3dbf0af1] rounded-2xl overflow-hidden relative"
+            >
+              <!-- image section  -->
+              <div
+                class="relative w-full h-[200px] c-md:h-[240px] md:h-[270px] rounded-t-2xl"
+              >
+                <img
+                  src="../assets/post-job.webp"
+                  class="w-full h-full object-cover object-center transition-transform duration-500"
+                  alt="jobseeker"
+                />
+              </div>
+
+              <!-- text section  -->
+              <div
+                class="flex border-t-8 border-gray-300 group-hover:border-white relative"
+              >
+                <!-- spinner  -->
+                <div
+                  class="absolute -top-12 left-[calc(80%-40px)] flex items-center"
+                >
+                  <span
+                    class="h-20 w-20 flex items-center justify-center rounded-full border-8 border-white"
+                  >
+                    <circle
+                      class="absolute h-16 w-16 growing-btn animate-growing-btn flex items-center justify-center rounded-full"
+                    ></circle>
+
+                    <span
+                      class="absolute h-12 w-12 flex items-center justify-center rounded-full bg-white"
+                    >
+                      <img
+                        src="../assets/right-angle-green.svg"
+                        alt=""
+                        class="flex w-6"
+                      />
+                    </span>
+                  </span>
+                </div>
+
+                <div class="flex flex-col gap-1 px-4 py-2 mt-4">
+                  <h2 class="text-white text-lg md:text-xl font-semibold">
+                    Post a Job
+                  </h2>
+
+                  <span class="text-stone-100 text-sm md:text-base"
+                    >Reach top talent instantly.</span
+                  >
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!--  Business Adevertisng   -->
+          <a href="./advertise-business.html" class="">
+            <div
+              class="flex flex-col h-[300px] c-md:h-[350px] md:h-[390px] group bg-[#3cbf0a] hover:bg-[#3dbf0af1] rounded-2xl overflow-hidden relative"
+            >
+              <!-- image section  -->
+              <div
+                class="relative w-full h-[200px] c-md:h-[240px] md:h-[270px] rounded-t-2xl"
+              >
+                <img
+                  src="../assets/advertise-business.webp"
+                  class="w-full h-full object-cover object-center transition-transform duration-500"
+                  alt="jobseeker"
+                />
+              </div>
+
+              <!-- text section  -->
+              <div
+                class="flex border-t-8 border-gray-300 group-hover:border-white relative"
+              >
+                <!-- spinner  -->
+                <div
+                  class="absolute -top-12 left-[calc(80%-40px)] flex items-center"
+                >
+                  <span
+                    class="h-20 w-20 flex items-center justify-center rounded-full border-8 border-white"
+                  >
+                    <circle
+                      class="absolute h-16 w-16 growing-btn animate-growing-btn flex items-center justify-center rounded-full"
+                    ></circle>
+
+                    <span
+                      class="absolute h-12 w-12 flex items-center justify-center rounded-full bg-white"
+                    >
+                      <img
+                        src="../assets/right-angle-green.svg"
+                        alt=""
+                        class="flex w-6"
+                      />
+                    </span>
+                  </span>
+                </div>
+
+                <div class="flex flex-col gap-1 px-4 py-2 mt-4">
+                  <h2 class="text-white text-lg md:text-xl font-semibold">
+                    Business Adevertisng
+                  </h2>
+
+                  <span class="text-stone-100 text-sm md:text-base"
+                    >Your brand, everywhere it matters.</span
+                  >
+                </div>
+              </div>
+            </div>
+          </a>
+
+          <!--  HR Outsourcing   -->
+          <a href="./hr-outsourcing.html" class="">
+            <div
+              class="flex flex-col h-[300px] c-md:h-[350px] md:h-[390px] group bg-[#3cbf0a] hover:bg-[#3dbf0af1] rounded-2xl overflow-hidden relative"
+            >
+              <!-- image section  -->
+              <div
+                class="relative w-full h-[200px] c-md:h-[240px] md:h-[270px] rounded-t-2xl"
+              >
+                <img
+                  src="../assets/hr-outsource.webp"
+                  class="w-full h-full object-cover object-center transition-transform duration-500"
+                  alt="jobseeker"
+                />
+              </div>
+
+              <!-- text section  -->
+              <div
+                class="flex border-t-8 border-gray-300 group-hover:border-white relative"
+              >
+                <!-- spinner  -->
+                <div
+                  class="absolute -top-12 left-[calc(80%-40px)] flex items-center"
+                >
+                  <span
+                    class="h-20 w-20 flex items-center justify-center rounded-full border-8 border-white"
+                  >
+                    <circle
+                      class="absolute h-16 w-16 growing-btn animate-growing-btn flex items-center justify-center rounded-full"
+                    ></circle>
+
+                    <span
+                      class="absolute h-12 w-12 flex items-center justify-center rounded-full bg-white"
+                    >
+                      <img
+                        src="../assets/right-angle-green.svg"
+                        alt=""
+                        class="flex w-6"
+                      />
+                    </span>
+                  </span>
+                </div>
+
+                <div class="flex flex-col gap-1 px-4 py-2 mt-4">
+                  <h2 class="text-white text-lg md:text-xl font-semibold">
+                    HR Outsourcing
+                  </h2>
+
+                  <span class="text-stone-100 text-sm md:text-base"
+                    >Outsource HR, optimize efficiency.</span
+                  >
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </main>
+
+      <footer class="px-0 w-full flex justify-center">
+        <div
+          class="h-12 fixed bottom-0 z-50 flex gap-2 text-white items-center justify-between w-full head-foot-width px-4 md:px-10 py-1 bg-[#3cbf0a] bg-opacity-90"
+        >
+          <a
+            href="./find-talent.html"
+            class="flex flex-col items-center gap-1 md:gap-1.5"
+          >
+            <img src="../assets/find-talent.svg" alt="" class="h-4 md:h-5" />
+            <span
+              class="font-medium text-xs sm:text-sm text-white tracking-tight footer-leading"
+              >Find Talent</span
+            >
+          </a>
+
+          <a
+            href="./post-job.html"
+            class="flex flex-col items-center gap-1 md:gap-1.5"
+          >
+            <img src="../assets/post-job.svg" alt="" class="h-4 md:h-5" />
+            <span
+              class="font-medium text-xs sm:text-sm text-white tracking-tight footer-leading"
+              >Post Job</span
+            >
+          </a>
+
+          <a
+            href="./advertise-business.html"
+            class="flex flex-col items-center gap-1 md:gap-1.5"
+          >
+            <img src="../assets/business-ads.svg" alt="" class="h-4 md:h-5" />
+            <span
+              class="font-medium text-xs sm:text-sm text-white tracking-tight footer-leading"
+              >Business Ads</span
+            >
+          </a>
+
+          <a
+            href="./contact-us.html"
+            class="flex flex-col items-center gap-1 md:gap-1.5"
+          >
+            <img src="../assets/contact-us.svg" alt="" class="h-4 md:h-5" />
+            <span
+              class="font-medium text-xs sm:text-sm text-white tracking-tight footer-leading"
+              >Contact Us</span
+            >
+          </a>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      function toggleFields() {
+        const employedFields = document.getElementById("employedFields");
+        const unemployedFields = document.getElementById("unemployedFields");
+
+        if (document.getElementById("employed").checked) {
+          employedFields.classList.remove("hidden");
+          unemployedFields.classList.add("hidden");
+        } else if (document.getElementById("unemployed").checked) {
+          unemployedFields.classList.remove("hidden");
+          employedFields.classList.add("hidden");
+        }
+      }
+
+      // image upload
+      const uploadImage = document.getElementById("uploadImage");
+      const profileImage = document.getElementById("profileImage");
+
+      // Handle image preview
+      uploadImage.addEventListener("change", (event) => {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = (e) => (profileImage.src = e.target.result);
+          reader.readAsDataURL(file);
+        }
+      });
+
+      function showTab(index, tabId, selectedBtn) {
+        // Hide the default global data when any tab is activated
+        const deafultContent = document.getElementById("deafultContent");
+        if (deafultContent) {
+          deafultContent.classList.add("hidden");
+        }
+
+        document.getElementById("jobSeekerTab").classList.add("hidden");
+        document.getElementById("businessTab").classList.add("hidden");
+
+        document.getElementById(tabId).classList.remove("hidden");
+
+        // Move the slider
+        const sliderBg = document.querySelector(".slider-bg");
+        sliderBg.style.transform = `translateX(${index * 100}%)`;
+
+        // Reset all buttons to their default text color
+        const buttons = document.querySelectorAll(".tab-btn");
+        buttons.forEach((button) => {
+          button.classList.remove("m-color");
+          button.classList.add("text-white");
+        });
+        selectedBtn.classList.add("m-color");
+        selectedBtn.classList.remove("text-white");
+      }
+
+      // country filter
+      const selectedCountry = document.querySelector("#selected-country");
+      const countryList = document.querySelector("#country-list");
+      const countryItems = document.querySelectorAll("#country-list > div");
+
+      // Toggle the country list on click
+      document
+        .querySelector(".countries-dropdown")
+        .addEventListener("click", () => {
+          countryList.classList.toggle("hidden");
+        });
+
+      // business tab animation
+
+      // image overlay
+      function toggleContent(element, event) {
+        event.stopPropagation();
+        document.querySelectorAll(".group").forEach((card) => {
+          if (card !== element) {
+            card.classList.remove("active");
+          }
+        });
+        element.classList.toggle("active");
+      }
+
+      document.addEventListener("click", (event) => {
+        document.querySelectorAll(".group").forEach((card) => {
+          if (!card.contains(event.target)) {
+            card.classList.remove("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
