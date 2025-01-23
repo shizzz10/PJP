@@ -2979,6 +2979,11 @@ h1,h2,h3,h4,h5,h6{
     padding-bottom: 0.875rem;
   }
 
+  .sm\:px-1\.5 {
+    padding-left: 0.375rem;
+    padding-right: 0.375rem;
+  }
+
   .sm\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
