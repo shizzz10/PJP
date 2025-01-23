@@ -463,18 +463,36 @@ Describe yourself</textarea
                   <label for="curr_Location" class="font-medium text-xs sm:text-sm pl-2">
                     Current Location</label
                   >
+                
                   <select
-                    required
-                    name=""
-                    id="curr_Location"
-                    class="w-full rounded-full border px-2 py-3 text-xs sm:py-3.5 focus:outline-none focus:ring-1 focus:ring-[#3cbf0a] shadow-sm shadow-black/5"
-                  >
-                    <option value="" disabled selected>
-                      Current Location
-                    </option>
-                    <option value="Outside_Qatar">Outside Qatar</option>
-                    <option value="Qatar">Qatar</option>
-                  </select>
+                  required
+                  name=""
+                  id="curr_Location"
+                  class="w-full rounded-full border px-2 py-3 text-xs sm:py-3.5 focus:outline-none focus:ring-1 focus:ring-[#3cbf0a] shadow-sm shadow-black/5"
+                >
+                  <option value="" disabled selected>
+                    Current Location
+                  </option>
+                  <option value="Karachi">Karachi</option>
+                  <option value="Islamabad">Islamabad</option>
+                  <option value="Lahore">Lahore</option>
+                  <option value="Multan">Multan</option>
+                  <option value="Faisalabad">Faisalabad</option>
+                  <option value="Quetta">Quetta</option>
+                  <option value="Peshawar">Peshawar</option>
+                  <option value="Sargodha">Sargodha</option>
+                  <option value="Rawalpindi">Rawalpindi</option>
+                  <option value="Gujranwala">Gujranwala</option>
+                  <option value="Hyderabad">Hyderabad</option>
+                  <option value="Bahawalpur">Bahawalpur</option>
+                  <option value="Sukkur">Sukkur</option>
+                  <option value="Larkana">Larkana</option>
+                  <option value="Jhang">Jhang</option>
+                  <option value="Sialkot">Sialkot</option>
+                  <option value="Sheikhupura">Sheikhupura</option>
+                  <option value="Gwadar">Gwadar</option>
+                  <option value="Gilgit_Baltistan">Gilgit Baltistan</option>                      
+                </select>
 
                   
                   <span class="hidden c-text-xs text-red-500 sm:text-xs pl-3">Error here</span>
@@ -675,14 +693,14 @@ Describe yourself</textarea
                 <!-- QID  -->
                 <div class="flex flex-col gap-0.5">
                   <label for="qid" class="font-medium text-xs sm:text-sm pl-2">
-                    Qatar ID(QID)</label
+                    CNIC Number</label
                   >
                   <input
                     required
                     type="text"
                     id="qid"
                     class="border w-full rounded-full text-xs px-2 py-3 sm:py-3.5 focus:border-[#3cbf0a] focus:outline-none shadow-sm shadow-black/5"
-                    placeholder="Enter Your Valid Qatar ID 11 Digits"
+                    placeholder="Enter Your Valid CNIC Number"
                   />
                   <span class="text-stone-700 c-text-uxs px-3">
                     The QID will be not be Public and only be used for
